@@ -109,8 +109,8 @@ struct ProductDetailView: View {
                             .fontWeight(.bold)
                             .padding(.vertical, 8)
                         
-                        if let energy = nutriments.energy {
-                            Text("Enerji: \(Int(energy)) kcal")
+                        if let energyKcal100g = nutriments.energyKcal100g {
+                            Text("Enerji: \(Int(energyKcal100g)) kcal")
                                 .font(.body)
                         } else {
                             Text("Enerji bilgisi bulunamadı.")

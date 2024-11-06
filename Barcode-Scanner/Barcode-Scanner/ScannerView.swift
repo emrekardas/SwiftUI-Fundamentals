@@ -38,7 +38,3 @@ struct ScannerView: UIViewControllerRepresentable {
         }
     }
 }
-
-#Preview {
-    ScannerView(scannedBarcode: .constant("123456"))
-}

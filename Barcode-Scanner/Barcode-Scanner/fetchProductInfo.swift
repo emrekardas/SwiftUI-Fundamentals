@@ -21,47 +21,54 @@ struct Product: Codable {
     let brands: String?
     let quantity: String?
     let nutriments: Nutriments?
-    let stores: StoresType? // stores alanını güncelledik
-    let ingredients_analysis_tags: [String?]
+    let stores: StoresType?
+    let ingredients_analysis_tags: [String]
     var isVegan: Bool?
     var isVegetarian: Bool?
-    
-    enum StoresType: Codable {
-        case single(String)
-        case list([String])
+}
 
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            if let singleStore = try? container.decode(String.self) {
-                self = .single(singleStore)
-            } else if let storeList = try? container.decode([String].self) {
-                self = .list(storeList)
-            } else {
-                throw DecodingError.typeMismatch(StoresType.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Expected String or [String]"))
-            }
+enum StoresType: Codable {
+    case single(String)
+    case list([String])
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let singleStore = try? container.decode(String.self) {
+            self = .single(singleStore)
+        } else if let storeList = try? container.decode([String].self) {
+            self = .list(storeList)
+        } else {
+            throw DecodingError.typeMismatch(StoresType.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Expected String or [String]"))
         }
+    }
 
-        func encode(to encoder: Encoder) throws {
-            var container = encoder.singleValueContainer()
-            switch self {
-            case .single(let store):
-                try container.encode(store)
-            case .list(let stores):
-                try container.encode(stores)
-            }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .single(let store):
+            try container.encode(store)
+        case .list(let stores):
+            try container.encode(stores)
         }
     }
 }
 
 struct Nutriments: Codable {
-    let energy: Double? // Enerji (kcal)
-    let fat: Double? // Yağ (g)
-    let saturated_fat: Double? // Doymuş Yağ (g)
-    let sugars: Double? // Şeker (g)
-    let salt: Double? // Tuz (g)
+    let energyKcal100g: Double?
+    let fat: Double?
+    let saturated_fat: Double?
+    let sugars: Double?
+    let salt: Double?
+    
+    // Nutriments için JSON anahtarlarıyla eşleştirme
+    enum CodingKeys: String, CodingKey {
+        case energyKcal100g = "energy-kcal_100g"
+        case fat
+        case saturated_fat
+        case sugars
+        case salt
+    }
 }
-
-
 
 func fetchProductInfo(for code: String, completion: @escaping (Product?) -> Void) {
     // API URL'sini ayarlayın
