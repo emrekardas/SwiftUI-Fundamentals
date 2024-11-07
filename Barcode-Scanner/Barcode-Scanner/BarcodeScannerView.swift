@@ -36,10 +36,10 @@ struct BarcodeScannerView: View {
                     Text(scannedBarcode.isEmpty ? "Henüz Tarama Yapılmadı" : scannedBarcode)
                         .font(.title2)
                         .fontWeight(.medium)
-                        .foregroundColor(scannedBarcode.isEmpty ? .red : .green)
+                        .foregroundColor(scannedBarcode.isEmpty ? .black : .white)
                         .padding(.vertical, 8)
                         .padding(.horizontal, 16)
-                        .background(Color(UIColor.secondarySystemBackground))
+                        .background(Color.containerBackground)
                         .cornerRadius(10)
                         .scaleEffect(animate ? 1.1 : 1.0)
                         .opacity(animate ? 1.0 : 0.7)
@@ -74,7 +74,7 @@ struct BarcodeScannerView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()
-                                .background(Color.blue)
+                                .background(Color.containerBackground)
                                 .cornerRadius(10)
                         }
                         .sheet(isPresented: $showProductDetail) {
@@ -92,6 +92,7 @@ struct BarcodeScannerView: View {
 
                 Spacer()
             }
+            .background(Color.veganBackground) // veganBackground rengi burada uygulandı
             .navigationTitle("")
             .navigationBarHidden(true)
             .alert(isPresented: $isShowingCopiedAlert) {

@@ -1,0 +1,95 @@
+{
+  "ingredients": [
+    {
+      "name": "milk",
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "egg",
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "wheat flour",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": false
+    },
+    {
+      "name": "gelatin",
+      "vegan": false,
+      "vegetarian": false,
+      "gluten_free": true
+    },
+    {
+      "name": "honey",
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "yeast",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "soy lecithin",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "gluten",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": false
+    },
+    {
+      "name": "palm oil",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "lactose",
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "casein",
+      "vegan": false,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "rye flour",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": false
+    },
+    {
+      "name": "barley malt",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": false
+    },
+    {
+      "name": "corn starch",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true
+    },
+    {
+      "name": "carrageenan",
+      "vegan": true,
+      "vegetarian": true,
+      "gluten_free": true
+    }
+  ]
+}
+

@@ -31,18 +31,37 @@ struct ProductDetailView: View {
                     .font(.title)
                     .fontWeight(.bold)
                 
-                HStack {
-                    if let isVegan = product?.isVegan {
-                        Text(isVegan ? "🌱 Vegan" : "🌱 Maybe Vegan")
-                            .foregroundColor(isVegan ? .green : .orange)
+                HStack(spacing: 16) {
+                    // Vegan durumu
+                    if let isVegan = product?.isVegan, isVegan {
+                        HStack(spacing: 4) {
+                            Image("vegan")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
                     }
-                    if let isVegetarian = product?.isVegetarian {
-                        Text(isVegetarian ? "V" : "Maybe V")
-                            .foregroundColor(isVegetarian ? .green : .orange)
+
+                    // Vejetaryen durumu
+                    if let isVegetarian = product?.isVegetarian, isVegetarian {
+                        HStack(spacing: 4) {
+                            Image("vegetarian")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                    }
+
+                    // Gluten-Free durumu
+                    if let isGlutenFree = product?.isGlutenFree, isGlutenFree {
+                        HStack(spacing: 4) {
+                            Image("gluten-free")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
                     }
                 }
                 .font(.title2)
                 .padding(.vertical, 8)
+
 
                 Divider()
 
@@ -151,5 +170,8 @@ struct ProductDetailView: View {
             .padding()
             .navigationTitle("Ürün Detayları")
         }
+        .background(Color.veganBackground) // veganBackground rengi burada uygulandı
+        .edgesIgnoringSafeArea(.all) // Arka planın tüm ekranı kaplaması için
     }
 }
+
